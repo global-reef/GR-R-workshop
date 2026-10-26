@@ -48,3 +48,19 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# RStudio
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# Temporary files
+.DS_Store
+*.Rproj.user
+
+# Generated outputs
+outputs/stats/*
+outputs/figures/*
+!outputs/stats/.gitkeep
+!outputs/figures/.gitkeep
