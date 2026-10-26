@@ -378,7 +378,7 @@ fish_clean <- fish_clean %>%
     Site = recode(Site, "No Name" = "No Name Pinnacle")
   )
 
-# The JAE analysis uses observations up to November 2025.
+# The attractor vs producer analysis uses observations up to November 2025.
 # We exclude missing dates and observations after this point.
 
 fish_clean <- fish_clean %>%
@@ -399,7 +399,7 @@ unique(fish_clean$Site)
 # To calculate with these values, they must be numeric.
 #
 # abundance_species was defined in our setup script.
-# It contains the species columns used in the JAE study.
+# It contains the species columns used in the attractor vs producer study.
 
 species_cols <- intersect(abundance_species, names(fish_clean))
 
@@ -458,7 +458,7 @@ fish_long %>%
 # unknown observations. Those values should NOT
 # automatically be converted to zero.
 #
-# The original JAE cleaning procedure also used ceiling()
+# The original attractor vs producer cleaning procedure also used ceiling()
 # to convert recorded abundance values to integers.
 
 fish_long <- fish_long %>%
@@ -497,7 +497,7 @@ fish_long <- fish_long %>%
   )
 
 # Retain the six paired study sites.
-# Exclude eel and ray records as in the JAE analysis.
+# Exclude eel and ray records as in the attractor vs producer analysis.
 
 fish_long <- fish_long %>%
   filter(
@@ -544,7 +544,7 @@ fish_long %>%
 #
 # NOTE:
 # These are descriptive summaries of raw observer records,
-# not the final JAE survey-level analysis.
+# not the final attractor vs producer survey-level analysis.
 
 fish_long %>%
   group_by(feeding_guild) %>%
@@ -569,7 +569,7 @@ fish_long %>%
 # Their records are repeated observations of the same survey,
 # rather than independent ecological sampling units.
 #
-# Following the JAE cleaning procedure, we calculate
+# Following the attractor vs producer cleaning procedure, we calculate
 # the mean count for each fish group within each site/date.
 #
 # ceiling() converts the averaged values to integers.
@@ -616,7 +616,7 @@ n_distinct(fish_species$survey_id)
 # We now combine species/group counts into feeding guilds
 # within each independent survey.
 #
-# This produces the response used for the main JAE model.
+# This produces the response used for the main attractor vs producer model.
 
 fish_guilds <- fish_species %>%
   group_by(survey_id, Site, pair, type, Date, feeding_guild) %>%
@@ -988,7 +988,7 @@ ggplot(
   theme_clean
 
 
-#### 10.2 Build a figure resembling the JAE analysis ####
+#### 10.2 Build a figure resembling the attractor vs producer analysis ####
 
 # facet_grid() arranges panels into rows and columns.
 #

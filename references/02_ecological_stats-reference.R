@@ -15,7 +15,7 @@
 #   - Model diagnostics, predictions and contrasts
 #
 # We progressively introduce statistical concepts using
-# the actual data and model structure from our JAE study.
+# the actual data and model structure from our attractor vs producer study.
 #
 # IMPORTANT:
 # This is a teaching progression, not an automated procedure
@@ -676,7 +676,7 @@ VarCorr(model_guild_mixed)
 # A zero-inflated model adds a second process describing
 # the probability of an additional structural zero.
 #
-# The submitted JAE model used a guild-specific
+# The submitted attractor vs producer model used a guild-specific
 # zero-inflation component:
 #
 # ziformula = ~feeding_guild
@@ -698,10 +698,10 @@ summary(model_guild_zi)
 AIC(model_guild_mixed, model_guild_zi)
 
 
-#### 8.4 Our JAE abundance model ####
+#### 8.4 Our attractor vs producer abundance model ####
 
 # We have now reached the structure of the submitted
-# JAE abundance model:
+# attractor vs producer abundance model:
 #
 # Response:
 #   Feeding-guild abundance per survey
@@ -1151,7 +1151,7 @@ saveRDS(
 # It is NOT the degree of a polynomial.
 #
 # This example is exploratory and does not replace
-# our full JAE mixed model.
+# our full attractor vs producer mixed model.
 
 model_gam <- mgcv::gam(
   total_abundance ~ type + pair + s(date_num, k = 5),
