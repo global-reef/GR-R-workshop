@@ -629,6 +629,10 @@ ggplot(
   facet_wrap(~feeding_guild, scales = "free_y") +
   scale_colour_manual(values = reef_cols) +
   scale_fill_manual(values = reef_cols) +
+  scale_x_date(
+    date_breaks = "1 year",
+    date_labels = "%Y"
+  ) +
   theme_clean
 
 
